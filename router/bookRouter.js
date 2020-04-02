@@ -5,7 +5,8 @@ const {insertBook,
     updateBook,
     findBookByPage,
     findbookByType,
-    findbookKey}=require('../controls/bookcontrols')
+    findbookKey,
+    findbookById}=require('../controls/bookcontrols')
 const router =express.Router()
 //添加书籍
 
@@ -202,6 +203,35 @@ router.post('/getinfoKey',(req,res)=>{
 .catch((err)=>{
   res.send({code:-1,msg:'关键字查询失败'})
 })
+
+})
+//根据id查询书籍
+/**
+ * @api {post} /book/getinfoId 根据id查询书籍
+ * @apiName getinfoId
+ * @apiGroup book
+ * 
+ * @apiParam {string} _id  输入id查询对应的数据
+ 
+ 
+ *
+ * @apiSuccess {String} code 状态码
+ * @apiSuccess {String} msg  信息提示.
+ *  @apiSuccess {String} list  返回信息.
+ * 
+ */
+router.post('/getinfoId',(req,res)=>{
+    let {_id}=req.body
+    findbookById(_id)
+    .then((data)=>{
+        console.log(data);
+        
+     res.send({code:0,msg:'Id查询成功',list:data})
+    })
+    .catch((err)=>{
+      res.send({code:-1,msg:'Id查询失败'})
+    })
+
 
 })
 

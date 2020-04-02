@@ -49,5 +49,11 @@ let findbookKey =async (key)=>{
     return result
 
 }
+//id查询书籍
+let findbookById =async (_id)=>{
+    let result = await bookModel.findOne({_id})
+    return result
+    
+}
 
-module.exports={insertBook,findBook,delBook,updateBook,findBookByPage,findbookByType,findbookKey}
+module.exports={insertBook,findBook,delBook,updateBook,findBookByPage,findbookByType,findbookKey,findbookById}

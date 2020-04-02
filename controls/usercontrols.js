@@ -10,8 +10,8 @@ let delusers=async(_id) =>{
 }
 
 //管理员修改密码
-let updatePs=async(_id,ps)=>{
-    let result=await userModel.updateOne({_id},ps)
+let updatePs=async(_id,updateinfo)=>{
+    let result=await userModel.updateOne({_id},updateinfo)
     console.log(result);
     return result
 }
@@ -21,5 +21,7 @@ let userlist =async()=>{
     let result =await userModel.find();
     return result
 }
+
+
 
 module.exports={delusers,updatePs,userlist}

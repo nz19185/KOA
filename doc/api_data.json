@@ -229,6 +229,56 @@
   },
   {
     "type": "post",
+    "url": "/book/getinfoId",
+    "title": "根据id查询书籍",
+    "name": "getinfoId",
+    "group": "book",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>输入id查询对应的数据</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>信息提示.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "list",
+            "description": "<p>返回信息.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "router/bookRouter.js",
+    "groupTitle": "book"
+  },
+  {
+    "type": "post",
     "url": "/book/getinfoKey",
     "title": "关键字查询书籍",
     "name": "getinfoKey",
